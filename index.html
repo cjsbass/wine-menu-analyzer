@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wine Menu Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Wine Menu Analyzer</h1>
+            <p class="subtitle">Upload a wine menu photo to get detailed information about each wine</p>
+        </header>
+
+        <div class="upload-zone" id="dropZone">
+            <input type="file" id="fileInput" accept="image/*,.heic" class="file-input">
+            <div class="upload-content">
+                <div class="upload-icon">📄</div>
+                <p class="primary-text">Drag and drop your wine menu photo here</p>
+                <p class="secondary-text">or</p>
+                <button class="upload-button">Choose a file</button>
+                <p class="file-types">Supports: JPG, PNG, HEIC</p>
+            </div>
+        </div>
+
+        <div class="result-container" style="display: none;">
+            <div class="image-section">
+                <h2>Menu Preview</h2>
+                <img id="preview" alt="Wine menu preview">
+            </div>
+            <div class="analysis-section">
+                <h2>Wine Analysis</h2>
+                <div id="transcription" class="analysis-content"></div>
+            </div>
+        </div>
+
+        <div class="progress-overlay" style="display: none;">
+            <div class="progress-card">
+                <div class="progress-header">
+                    <h3>Analyzing Wine Menu</h3>
+                    <p class="progress-description">Please wait while we process your image</p>
+                </div>
+                <div class="progress-steps">
+                    <div class="progress-step">
+                        <div class="step-icon">📁</div>
+                        <div class="step-content">
+                            <div class="step-label">Reading file</div>
+                            <div class="step-eta" id="readEta">Waiting...</div>
+                        </div>
+                        <progress id="readProgress" value="0" max="100"></progress>
+                    </div>
+                    <div class="progress-step">
+                        <div class="step-icon">🔄</div>
+                        <div class="step-content">
+                            <div class="step-label">Converting format</div>
+                            <div class="step-eta" id="convertEta">Waiting...</div>
+                        </div>
+                        <progress id="convertProgress" value="0" max="100"></progress>
+                    </div>
+                    <div class="progress-step">
+                        <div class="step-icon">🔍</div>
+                        <div class="step-content">
+                            <div class="step-label">Analyzing wines</div>
+                            <div class="step-eta" id="wineAnalysisEta">Waiting...</div>
+                        </div>
+                        <progress id="wineAnalysisProgress" value="0" max="100"></progress>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 

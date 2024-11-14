@@ -1,0 +1,346 @@
+:root {
+    --primary-color: #2D3250;
+    --accent-color: #7077A1;
+    --background-color: #f5f6fa;
+    --card-background: #ffffff;
+    --text-color: #2c3e50;
+    --border-radius: 12px;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h1 {
+    color: var(--primary-color);
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.subtitle {
+    color: var(--accent-color);
+    font-size: 1.1em;
+    margin-top: 10px;
+}
+
+.upload-zone {
+    position: relative;
+    background: var(--card-background);
+    border: 2px dashed var(--accent-color);
+    border-radius: var(--border-radius);
+    padding: 40px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 40px;
+}
+
+.upload-zone:hover {
+    border-color: var(--primary-color);
+    background: #f8f9fa;
+}
+
+.upload-zone.drag-over {
+    background: #e8f0fe;
+    border-color: var(--primary-color);
+}
+
+.file-input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.upload-content {
+    pointer-events: none;
+}
+
+.upload-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.primary-text {
+    font-size: 1.2em;
+    color: var(--text-color);
+    margin: 10px 0;
+}
+
+.secondary-text {
+    color: var(--accent-color);
+    margin: 10px 0;
+}
+
+.upload-button {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin: 15px 0;
+}
+
+.file-types {
+    color: #666;
+    font-size: 0.9em;
+    margin-top: 10px;
+}
+
+.result-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.image-section, .analysis-section {
+    background: var(--card-background);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+#preview {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.analysis-content {
+    overflow-x: auto;
+}
+
+.progress-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.progress-card {
+    background: var(--card-background);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    width: 90%;
+    max-width: 500px;
+}
+
+.progress-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.progress-header h3 {
+    margin: 0;
+    color: var(--primary-color);
+}
+
+.progress-description {
+    color: var(--accent-color);
+    margin: 10px 0 0;
+}
+
+.progress-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.progress-step {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 15px;
+    align-items: center;
+}
+
+.step-icon {
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f0f2f5;
+    border-radius: 50%;
+}
+
+.step-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.step-label {
+    font-weight: 500;
+}
+
+.step-eta {
+    font-size: 0.9em;
+    color: var(--accent-color);
+}
+
+progress {
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    -webkit-appearance: none;
+}
+
+progress::-webkit-progress-bar {
+    background-color: #f0f2f5;
+    border-radius: 3px;
+}
+
+progress::-webkit-progress-value {
+    background-color: var(--primary-color);
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+.wine-analysis {
+    margin-top: 20px;
+    font-family: 'Inter', sans-serif;
+}
+
+.wine-analysis table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 25px 0;
+    font-size: 0.95em;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    background: white;
+}
+
+.wine-analysis th {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 500;
+    padding: 16px;
+    text-align: left;
+    font-size: 0.95em;
+    letter-spacing: 0.5px;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.1);
+}
+
+.wine-analysis td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #eef0f5;
+    color: #2c3e50;
+    font-size: 0.9em;
+    vertical-align: middle;
+}
+
+.wine-analysis tr:last-child td {
+    border-bottom: none;
+}
+
+.wine-analysis tr:nth-child(even) {
+    background-color: #f8fafc;
+}
+
+.wine-analysis tr:hover {
+    background-color: #f1f4f9;
+    transition: background-color 0.2s ease;
+}
+
+.wine-analysis td:nth-child(1) {
+    font-weight: 500;
+}
+
+.wine-analysis td:nth-child(2) {
+    font-family: 'Monaco', monospace;
+    font-size: 0.9em;
+}
+
+.wine-analysis td:nth-child(7) {
+    font-family: 'Monaco', monospace;
+    font-weight: 500;
+}
+
+.wine-analysis td:nth-child(8) {
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+.wine-analysis td [title] {
+    border-bottom: 1px dotted #999;
+    cursor: help;
+}
+
+.wine-analysis td span.est {
+    color: #666;
+    font-size: 0.9em;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .result-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .progress-card {
+        width: 95%;
+        padding: 20px;
+    }
+    
+    .wine-analysis {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .wine-analysis table {
+        font-size: 0.85em;
+    }
+    
+    .wine-analysis th,
+    .wine-analysis td {
+        padding: 12px;
+    }
+}
+
+.wine-analysis.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.error-message {
+    color: #dc3545;
+    padding: 15px;
+    border-radius: 6px;
+    background: #fff;
+    border: 1px solid #ffcdd2;
+    margin: 10px 0;
+} 
